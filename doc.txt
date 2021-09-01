@@ -6,14 +6,6 @@ https://graphql.org/learn/queries/#fields
 
 
 
-Begin forwarded message:
-
-From: "Anu TP (V)" <atp2@apple.com>
-Subject: GitHub GraphQL API - Vulnerabilities
-Date: 31 August 2021 at 7:52:49 PM IST
-To: s_rajpurohit@apple.com, Vishvesh <vishvesh_joshi@apple.com>, "Guruprasad Prahallad (V)" <gprahallad@apple.com>, Deepak Pattnaik <deepak_pattnaik@apple.com>
-Cc: "Sanjay S S (V)" <sanjay_ss@apple.com>, "Shalini Kumarasamy (V)" <shalini_k@apple.com>
-
 Query for fetching the vulnerabilities from Github GraphQL API. 
 
 URL:
