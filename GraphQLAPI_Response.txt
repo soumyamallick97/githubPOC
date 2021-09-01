@@ -1,0 +1,149 @@
+{
+    "data": {
+        "securityVulnerabilities": {
+            "totalCount": 2,
+            "nodes": [
+                {
+                    "advisory": {
+                        "ghsaId": "GHSA-mvr2-9pj6-7w5j",
+                        "description": "Unbounded memory allocation in Google Guava 11.0 through 24.x before 24.1.1 allows remote attackers to conduct denial of service attacks against servers that depend on this library and deserialize attacker-provided data, because the AtomicDoubleArray class (when serialized with Java serialization) and the CompoundOrdering class (when serialized with GWT serialization) perform eager allocation without appropriate checks on what a client has sent and whether the data size is reasonable.",
+                        "cvss": {
+                            "score": 5.9,
+                            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                        },
+                        "cwes": {
+                            "edges": [
+                                {
+                                    "cursor": "Y3Vyc29yOnYyOpHNAbA=",
+                                    "node": {
+                                        "cweId": "CWE-502",
+                                        "description": "The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid.",
+                                        "name": "Deserialization of Untrusted Data"
+                                    }
+                                },
+                                {
+                                    "cursor": "Y3Vyc29yOnYyOpHNAm4=",
+                                    "node": {
+                                        "cweId": "CWE-770",
+                                        "description": "The software allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the intended security policy for that actor.",
+                                        "name": "Allocation of Resources Without Limits or Throttling"
+                                    }
+                                }
+                            ]
+                        },
+                        "databaseId": 2170,
+                        "identifiers": [
+                            {
+                                "type": "GHSA",
+                                "value": "GHSA-mvr2-9pj6-7w5j"
+                            },
+                            {
+                                "type": "CVE",
+                                "value": "CVE-2018-10237"
+                            }
+                        ],
+                        "notificationsPermalink": "https://github.com/advisories/GHSA-mvr2-9pj6-7w5j/dependabot",
+                        "origin": "UNSPECIFIED",
+                        "permalink": "https://github.com/advisories/GHSA-mvr2-9pj6-7w5j",
+                        "publishedAt": "2020-06-15T20:35:11Z",
+                        "references": [
+                            {
+                                "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-10237"
+                            },
+                            {
+                                "url": "https://github.com/advisories/GHSA-mvr2-9pj6-7w5j"
+                            }
+                        ],
+                        "severity": "MODERATE",
+                        "summary": "Denial of Service in Google Guava",
+                        "updatedAt": "2021-06-11T12:52:33Z",
+                        "withdrawnAt": null
+                    },
+                    "firstPatchedVersion": {
+                        "identifier": "24.1.1"
+                    },
+                    "package": {
+                        "ecosystem": "MAVEN",
+                        "name": "com.google.guava:guava"
+                    },
+                    "severity": "MODERATE",
+                    "updatedAt": "2021-06-09T23:19:56Z",
+                    "vulnerableVersionRange": "> 11.0, < 24.1.1"
+                },
+                {
+                    "advisory": {
+                        "ghsaId": "GHSA-5mg8-w23w-74h3",
+                        "description": "A temp directory creation vulnerability exist in Guava versions prior to 30.0 allowing an attacker with access to the machine to potentially access data in a temporary directory created by the Guava com.google.common.io.Files.createTempDir(). The permissions granted to the directory created default to the standard unix-like /tmp ones, leaving the files open. We recommend updating Guava to version 30.0 or later, or update to Java 7 or later, or to explicitly change the permissions after the creation of the directory if neither are possible.",
+                        "cvss": {
+                            "score": 3.3,
+                            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+                        },
+                        "cwes": {
+                            "edges": [
+                                {
+                                    "cursor": "Y3Vyc29yOnYyOpHMrQ==",
+                                    "node": {
+                                        "cweId": "CWE-200",
+                                        "description": "The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.",
+                                        "name": "Exposure of Sensitive Information to an Unauthorized Actor"
+                                    }
+                                },
+                                {
+                                    "cursor": "Y3Vyc29yOnYyOpHNAlw=",
+                                    "node": {
+                                        "cweId": "CWE-732",
+                                        "description": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.",
+                                        "name": "Incorrect Permission Assignment for Critical Resource"
+                                    }
+                                }
+                            ]
+                        },
+                        "databaseId": 3583,
+                        "identifiers": [
+                            {
+                                "type": "GHSA",
+                                "value": "GHSA-5mg8-w23w-74h3"
+                            },
+                            {
+                                "type": "CVE",
+                                "value": "CVE-2020-8908"
+                            }
+                        ],
+                        "notificationsPermalink": "https://github.com/advisories/GHSA-5mg8-w23w-74h3/dependabot",
+                        "origin": "UNSPECIFIED",
+                        "permalink": "https://github.com/advisories/GHSA-5mg8-w23w-74h3",
+                        "publishedAt": "2021-03-25T17:04:19Z",
+                        "references": [
+                            {
+                                "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8908"
+                            },
+                            {
+                                "url": "https://github.com/advisories/GHSA-5mg8-w23w-74h3"
+                            }
+                        ],
+                        "severity": "LOW",
+                        "summary": "Information Disclosure in Guava",
+                        "updatedAt": "2021-06-21T22:17:55Z",
+                        "withdrawnAt": null
+                    },
+                    "firstPatchedVersion": {
+                        "identifier": "30.0-jre"
+                    },
+                    "package": {
+                        "ecosystem": "MAVEN",
+                        "name": "com.google.guava:guava"
+                    },
+                    "severity": "LOW",
+                    "updatedAt": "2021-03-25T17:01:10Z",
+                    "vulnerableVersionRange": "<= 29.0"
+                }
+            ],
+            "pageInfo": {
+                "endCursor": "Y3Vyc29yOnYyOpK5MjAyMS0wMy0yNVQyMjozMToxMCswNTozMM0X3w==",
+                "hasNextPage": false,
+                "hasPreviousPage": false,
+                "startCursor": "Y3Vyc29yOnYyOpK5MjAyMS0wNi0xMFQwNDo0OTo1NiswNTozMM0NhQ=="
+            }
+        }
+    }
+}
