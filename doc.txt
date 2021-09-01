@@ -1,1 +1,111 @@
 
+Docs for reference:  
+
+https://docs.github.com/en/graphql/reference/queries#securityvulnerabilityconnection
+https://graphql.org/learn/queries/#fields
+
+
+
+Begin forwarded message:
+
+From: "Anu TP (V)" <atp2@apple.com>
+Subject: GitHub GraphQL API - Vulnerabilities
+Date: 31 August 2021 at 7:52:49 PM IST
+To: s_rajpurohit@apple.com, Vishvesh <vishvesh_joshi@apple.com>, "Guruprasad Prahallad (V)" <gprahallad@apple.com>, Deepak Pattnaik <deepak_pattnaik@apple.com>
+Cc: "Sanjay S S (V)" <sanjay_ss@apple.com>, "Shalini Kumarasamy (V)" <shalini_k@apple.com>
+
+Query for fetching the vulnerabilities from Github GraphQL API. 
+
+URL:
+
+https://api.github.com/graphql
+
+QUERY:
+
+query ($first : Int!, $ecosystem : SecurityAdvisoryEcosystem!, $package : String!, $orderBy : SecurityVulnerabilityOrder){ 
+securityVulnerabilities(first: $first, ecosystem: $ecosystem, package: $package, orderBy : $orderBy ){
+   totalCount
+nodes {
+advisory{
+ghsaId 
+description
+cvss{
+   score
+   vectorString
+}
+cwes(first: 20){
+   edges{
+       cursor
+       node{
+           cweId
+           description
+           name
+       }
+   }
+}
+databaseId
+identifiers{
+   type
+   value
+}
+notificationsPermalink
+origin
+permalink
+publishedAt
+references{
+   url
+}
+severity
+summary
+updatedAt
+withdrawnAt
+}
+firstPatchedVersion{
+   identifier
+}
+package{
+   ecosystem
+   name
+}
+severity
+updatedAt
+vulnerableVersionRange
+}
+pageInfo{
+   endCursor
+   hasNextPage
+   hasPreviousPage
+   startCursor
+}
+}
+}
+
+VARIABLES:
+
+{
+"first": 20,
+"ecosystem": "MAVEN",
+"package": "com.google.guava:guava",
+"orderBy": {
+"direction": "DESC",
+"field": "UPDATED_AT"
+}
+}
+
+NOTES: 
+
+- Clients must supply a first or last argument on any connection.
+- Values of first and last must be within 1-100.
+- Individual calls cannot request more than 500,000 total nodes.
+- Pagination can be performed by using pageInfo.
+- orderBy is possible only with field “UPDATED_AT”.
+- Other parameters which could be passed in the request are,
+ after - this takes the cursor value from pageInfo
+ before - this takes the cursor value from pageInfo
+   
+ last - this returns the last n elements
+ severities - can be filtered based on severity (CRITICAL, HIGH, LOW, MODERATE).
+- vulnerableVersionRange can be used to filter the vulnerabilities for a specific version.
+
+RESPONSE:
+
